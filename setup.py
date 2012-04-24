@@ -6,6 +6,7 @@ from setuptools import setup
 
 import os
 
+
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
@@ -15,7 +16,7 @@ setup(
     name='catalog.regression',
     version=version,
     description="A buildout for finding out where the catalog regression occured.",
-    long_description=read('docs', 'README.rst'),
+    long_description=read('README.rst'),
     classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
@@ -36,7 +37,10 @@ setup(
     extras_require={
         # list libs needed for unittesting this project
         'test': [
+            'collective.transmogrifier',
             'plone.app.testing',
+            'plone.app.transmogrifier',
+            'transmogrify.filesystem',
             'unittest2',
         ],
     },

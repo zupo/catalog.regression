@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier">
+
+    <!-- Zope2 initialization -->
+<!-- TODO:    <five:registerPackage package="." initialize=".initialize" /> -->
+
+    <!-- Include configuration for dependencies listed in setup.py -->
+    <includeDependencies package="." />
+
+    <!-- collective.transmogrifier registrations for importing test data -->
+    <include package="collective.transmogrifier" file="meta.zcml" />
+    <include package="collective.transmogrifier" />
+    <include package="transmogrify.filesystem" />
+    <include package="plone.app.transmogrifier" />
+
+    <transmogrifier:registerConfig
+        name="Test data import"
+        title="Test data import"
+        description=""
+        configuration="transmogrifier.cfg"
+        />
+
+</configure>

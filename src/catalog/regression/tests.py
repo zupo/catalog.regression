@@ -22,7 +22,7 @@ class CatalogRegressionLayer(PloneSandboxLayer):
         # Load ZCML
         import catalog.regression
         self.loadZCML(package=catalog.regression)
-        #z2.installProduct(app, 'catalog.regression')
+        #TODO: z2.installProduct(app, 'catalog.regression')
 
     def setUpPloneSite(self, portal):
         """Set up Plone."""
@@ -45,7 +45,7 @@ class CatalogRegressionLayer(PloneSandboxLayer):
 
     def tearDownZope(self, app):
         """Tear down Zope."""
-        #z2.uninstallProduct(app, 'catalog.regression')
+        #TODO: z2.uninstallProduct(app, 'catalog.regression')
         pass
 
 
@@ -71,7 +71,7 @@ class TestSearchResultsOrdering(IntegrationTestCase):
 
     def test_search_results_order(self):
         """Test the order of search results."""
-        catalog = getToolByName(self.context, 'portal_catalog')
-        results = catalog(SearchableText='dog')
+        results = self.catalog(SearchableText='dog')
 
+        import pdb; pdb.set_trace( )
         self.assertEquals(results[0].id, 'foo id')
