@@ -36,6 +36,8 @@ You can also import test articles into your Plone site and test manually
     import transaction; transaction.commit()
 
 
+.. _alternations:
+
 Alternating results problem
 ---------------------------
 
