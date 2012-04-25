@@ -32,15 +32,15 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        'collective.transmogrifier',
+        'plone.app.transmogrifier',
         'setuptools',
+        'transmogrify.filesystem',
     ],
     extras_require={
         # list libs needed for unittesting this project
         'test': [
-            'collective.transmogrifier',
             'plone.app.testing',
-            'plone.app.transmogrifier',
-            'transmogrify.filesystem',
             'unittest2',
         ],
     },

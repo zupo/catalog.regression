@@ -1,0 +1,28 @@
+﻿How to Back Up a Data in Your Pocket PC
+
+
+It is rather devastating when your Pocket PC has just gone berserk then suddenly; every single file that you’ve saved is lost. No matter how small your handheld device is. It still holds part of your life that even a desktop computer can’t replace. One good thing about backing up a data is that, it saves every important file and data that you need, otherwise preserving it for future use and information.
+
+It can be quite irritating and, in a manner, devastating to lose an entire data full of important files. You can cry your hearts out and put the blame on everyone and everything including the PPC itself, your boss, your team, the manufacturer of the device, and even your dog. You can blame everyone but that will not work on retrieving all your lost data. Usually, someone will think of backing up their important files after every data gets lost.
+
+Backing up a file is easy. But only a few does this. Why? Maybe because of supreme faith in their device. The feeling of backing up files is not as thrilling as bungee jumping or sky diving. It’s quite boring and monotonous. That’s why this article is giving you quick tips on how to back up your files in less than ten minutes. Please don’t hesitate, it’s for your own good. It’s saving you from future alienation. This won’t cost you anything so try to participate.
+
+Instructions that were made were created using Microsoft ActiveSync 3.7, a PPC with Windows Mobile 2003 and Windows 2000. The following instructions may slightly differ with the abovementioned software.
+
+Step # 1 – PDA Connection
+
+Open your PPC’s ActiveSync. Click on the details then double-click the icon for the green ActiveSync located at your taskbar near the clock.
+
+Step # 2 – Moving on to the Backup
+
+Still within the ActiveSync, click on the “Tool” icon just above the page within the menu bar. Select the icon which indicates “Backup/Restore”. This will route you to the page where you’re supposed to activate the backup system.
+
+Step # 3 – Working a Backup
+
+On the backup page, you can select the type of backup that you would want your PPC to do. You can choose from the incremental or full backup. Example, if you have selected “Full backup, Back up all information”, click on the “Back Up Now”, then put a mark on the statement that says “Automatically backup each time the device connects”. Then click on the backup icon now. If you have chosen incremental backup accidentally, you can revise it or just leave it there because all your files will still be saved.
+
+Step # 4 – Completing Backup
+
+Now, you can sit down, and relax and wait for the backup process is completed. This will take you at least five to ten minutes. The speed of backing up a file will depend on how fast your computer can download files.
+
+And so there it is. Once the backing up of files is finished, you can exit the program and go on to your work. Always remember to back up all your Pocket PC files into your desktop computer to be able to save it and store it safely. Never compromise the importance of backing up your priceless files for these backups may just save your day.

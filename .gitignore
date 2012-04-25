@@ -6,7 +6,9 @@ bin
 .mr.developer.cfg
 .installed.cfg
 .DS_Store
+buildout.cfg
 develop-eggs
 docs/doctrees
 docs/html
 docs/make.bat
+src/plone.app.search

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module where all TestCases live."""
 
+from collective.transmogrifier.transmogrifier import Transmogrifier
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import login
 from plone.app.testing import PLONE_FIXTURE
@@ -10,7 +11,17 @@ from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from Products.CMFCore.utils import getToolByName
 
+import transaction
 import unittest2 as unittest
+
+QUERY = {
+    'b_size': 10,
+    'portal_type': ['News Item', 'Image', 'Topic', 'Link', 'File', 'Folder', 'Document', 'Event'],
+    'SearchableText': 'dog',
+    'show_inactive': False,
+    'b_start': 0,
+    'path': '/plone'
+}
 
 
 class CatalogRegressionLayer(PloneSandboxLayer):
@@ -22,7 +33,6 @@ class CatalogRegressionLayer(PloneSandboxLayer):
         # Load ZCML
         import catalog.regression
         self.loadZCML(package=catalog.regression)
-        #TODO: z2.installProduct(app, 'catalog.regression')
 
     def setUpPloneSite(self, portal):
         """Set up Plone."""
@@ -32,21 +42,6 @@ class CatalogRegressionLayer(PloneSandboxLayer):
         # Login as Manager
         setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
-
-        # Create test content by importing test articles with Transmogrifier
-        from collective.transmogrifier.transmogrifier import Transmogrifier
-        transmogrifier = Transmogrifier(portal)
-        transmogrifier('Test data import')
-
-        # Commit all changes
-        portal.portal_catalog.clearFindAndRebuild()
-        import transaction
-        transaction.commit()
-
-    def tearDownZope(self, app):
-        """Tear down Zope."""
-        #TODO: z2.uninstallProduct(app, 'catalog.regression')
-        pass
 
 
 FIXTURE = CatalogRegressionLayer()
@@ -60,18 +55,76 @@ class IntegrationTestCase(unittest.TestCase):
     layer = INTEGRATION_TESTING
 
 
-class TestSearchResultsOrdering(IntegrationTestCase):
-    """Test the order of search results."""
+class Test3Articles(IntegrationTestCase):
+    """Test search results alternation for 3 articles."""
 
-    def setUp(self):
-        """Custom shared utility setup for tests."""
+    def test_search_alternation(self):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
         self.catalog = getToolByName(self.portal, 'portal_catalog')
 
-    def test_search_results_order(self):
-        """Test the order of search results."""
-        results = self.catalog(SearchableText='dog')
+        # Create test content by importing test articles with Transmogrifier
+        transmogrifier = Transmogrifier(self.portal)
+        transmogrifier('Import 3 articles')
 
-        import pdb; pdb.set_trace( )
-        self.assertEquals(results[0].id, 'foo id')
+        # Commit all changes
+        self.portal.portal_catalog.clearFindAndRebuild()
+        transaction.commit()
+
+        # query catalog twice
+        first = self.catalog(QUERY)[:3]
+        second = self.catalog(QUERY)[:3]
+
+        self.assertEquals(first[0].id, second[0].id,
+            "FAIL: first and second query returned a differnet top result: '%s' vs. '%s '"
+                % (first[0].id, second[0].id))
+
+
+class Test10Articles(IntegrationTestCase):
+    """Test search results alternation for 10 articles."""
+
+    def test_search_alternation(self):
+        self.portal = self.layer['portal']
+        self.request = self.layer['request']
+        self.catalog = getToolByName(self.portal, 'portal_catalog')
+
+        # Create test content by importing test articles with Transmogrifier
+        transmogrifier = Transmogrifier(self.portal)
+        transmogrifier('Import 10 articles')
+
+        # Commit all changes
+        self.portal.portal_catalog.clearFindAndRebuild()
+        transaction.commit()
+
+        # query catalog twice
+        first = self.catalog(QUERY)[:3]
+        second = self.catalog(QUERY)[:3]
+
+        self.assertEquals(first[0].id, second[0].id,
+            "FAIL: first and second query returned a differnet top result: '%s' vs. '%s '"
+                % (first[0].id, second[0].id))
+
+
+class Test100Articles(IntegrationTestCase):
+    """Test search results alternation for 100 articles."""
+
+    def test_search_alternation(self):
+        self.portal = self.layer['portal']
+        self.request = self.layer['request']
+        self.catalog = getToolByName(self.portal, 'portal_catalog')
+
+        # Create test content by importing test articles with Transmogrifier
+        transmogrifier = Transmogrifier(self.portal)
+        transmogrifier('Import 100 articles')
+
+        # Commit all changes
+        self.portal.portal_catalog.clearFindAndRebuild()
+        transaction.commit()
+
+        # query catalog twice
+        first = self.catalog(QUERY)[:3]
+        second = self.catalog(QUERY)[:3]
+
+        self.assertEquals(first[0].id, second[0].id,
+            "FAIL: first and second query returned a differnet top result: '%s' vs. '%s '"
+                % (first[0].id, second[0].id))

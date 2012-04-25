@@ -2,9 +2,6 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier">
 
-    <!-- Zope2 initialization -->
-<!-- TODO:    <five:registerPackage package="." initialize=".initialize" /> -->
-
     <!-- Include configuration for dependencies listed in setup.py -->
     <includeDependencies package="." />
 
@@ -15,10 +12,24 @@
     <include package="plone.app.transmogrifier" />
 
     <transmogrifier:registerConfig
-        name="Test data import"
-        title="Test data import"
+        name="Import 3 articles"
+        title="Import 3 articles"
         description=""
-        configuration="transmogrifier.cfg"
+        configuration="transmogrifier_3.cfg"
+        />
+
+    <transmogrifier:registerConfig
+        name="Import 10 articles"
+        title="Import 10 articles"
+        description=""
+        configuration="transmogrifier_10.cfg"
+        />
+
+    <transmogrifier:registerConfig
+        name="Import 100 articles"
+        title="Import 100 articles"
+        description=""
+        configuration="transmogrifier_100.cfg"
         />
 
 </configure>
