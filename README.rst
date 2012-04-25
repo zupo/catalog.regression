@@ -41,8 +41,8 @@ You can also import test articles into your Plone site and test manually
 Alternating results problem
 ---------------------------
 
-The problem is that querying the catalog with the same query returns two
-different sets of results.
+The problem is that in newer Plone releases, querying the catalog with the same
+query parameters multiple times returns two different sets of results.
 
 To reproduce, first run tests on Plone 4.0.9, then on 4.1.4. You will see
 that in 4.1.4 the top result for the first and second query are different
