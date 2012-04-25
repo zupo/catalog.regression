@@ -59,5 +59,5 @@ that in 4.1.4 the top result for the first and second query are different
 
     $ bin/buildout -c plone4.1.4.cfg
     $ bin/test -s catalog.regression
-    FAIL: first and second query returned a differnet top result: 'what-is-the-green-bean-dog-diet.txt' vs. 'a-guide-to-candy-vending-machines.txt '
+    FAIL: first and second query returned a different top result: 'what-is-the-green-bean-dog-diet.txt' vs. 'a-guide-to-candy-vending-machines.txt '
 

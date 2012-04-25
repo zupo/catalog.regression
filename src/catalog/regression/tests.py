@@ -126,5 +126,5 @@ class Test100Articles(IntegrationTestCase):
         second = self.catalog(QUERY)[:3]
 
         self.assertEquals(first[0].id, second[0].id,
-            "FAIL: first and second query returned a differnet top result: '%s' vs. '%s '"
+            "FAIL: first and second query returned a different top result: '%s' vs. '%s '"
                 % (first[0].id, second[0].id))
