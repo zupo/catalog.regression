@@ -62,3 +62,6 @@ that in 4.1.4 the top result for the first and second query are different
     [... snip ...]
     FAIL: first and second query returned a different top result: 'what-is-the-green-bean-dog-diet.txt' vs. 'a-guide-to-candy-vending-machines.txt '
 
+    .. note::
+
+        UPDATE: this issue was fixed in https://dev.plone.org/ticket/12862#comment:3
